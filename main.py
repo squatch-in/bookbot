@@ -14,16 +14,9 @@ print(number_of_words)
 lower_case_book = book.lower()
 # print(lower_case_book)
 
-def character_count():
-    all_characters = {}
-    unique_set = set()
-    for character in lower_case_book:
-        if character not in unique_set:
-            unique_set.add(character)
-            
-    
-    
+from collections import Counter
+def character_count(abc):
+    return dict(Counter(abc))
 
-    
-
-character_count()
+letters = character_count(lower_case_book)
+print(letters)
