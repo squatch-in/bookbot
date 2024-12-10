@@ -8,15 +8,36 @@ book = main()
 
 #This counts the number of words from the book function.
 number_of_words = len(book.split())
-print(number_of_words)
+# print(number_of_words)
 
 # The book in all lowercase
 lower_case_book = book.lower()
-# print(lower_case_book)
+
+#filters of only alphabet
+alphabet ="".join(c for c in lower_case_book if c.isalpha())
+# print(alphabet)
+
 
 from collections import Counter
 def character_count(abc):
     return dict(Counter(abc))
 
-letters = character_count(lower_case_book)
-print(letters)
+letters = character_count(alphabet)
+# print(letters)
+
+# def counter(string):
+#     counter = {}
+#     for i in string:
+#         if i not in counter:
+#             counter[i] = 1
+#         else:
+#             counter[i] += 1
+#     return counter
+# counted = counter(lower_case_book)
+# print(counted)
+print("--- Begin report of books/frankenstein.txt ---")
+print(f"{number_of_words} words found in document", end='\n\n')
+for key in letters:
+    # print (key, letters[key] )
+    print(f"The '{key}' character was found {letters[key]} times")
+print("--- End Report ---")
